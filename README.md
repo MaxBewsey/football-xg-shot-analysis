@@ -50,20 +50,20 @@ The objective was not to recreate the underlying xG model, but to investigate wh
 - Total shot volume alone explained approximately **30% of the variation in match xG**.
 - Separating shots by outcome substantially improved performance:
   - Shots on target made the largest contribution to predicted xG.
-  - Blocked shots contributed more than shots that missed the target.
+  - Blocked shots contributed less than shots that missed the target.
 - Adding information about the situation in which shots were taken improved the model further.
-- Penalties and direct free kicks carried the largest individual xG contributions.
-- The full Linear Regression model achieved an out-of-sample R² of approximately **0.49** for total match xG.
+- Penalties and direct free kicks carried the largest individual xG weights for shot situation.
+- The full Linear Regression model achieved an R^2 of approximately **0.49** for total match xG.
 - Separate home and away models achieved R^2 values of approximately:
   - **0.56 for home xG**
   - **0.57 for away xG**
 - Random Forest Regression did not outperform Linear Regression, which is consistent with the relationship between these shot metrics and xG being largely linear.
-- A substantial proportion of xG remained unexplained, highlighting the importance of information not available in the dataset, such as:
+- A substantial proportion of xG remained unexplained, highlighting the importance of additional features such as:
   - Shot location
-  - Distance and angle
   - Body part
   - Defensive pressure
   - Goalkeeper positioning
+  - Action before receiving the ball
 
 ## Data
 
@@ -76,8 +76,8 @@ The full datasets are not stored in this repository due to file size.
 
 Small samples are included in the `data` folder to demonstrate the structure of the two files used:
 
-- `game_events_sample.csv` — shot-level event data
-- `general_game_stats_sample.csv` — match-level summary data
+- `game_events_sample.csv` - shot-level event data
+- `general_game_stats_sample.csv` - match-level summary data
 
 To reproduce the full analysis, download the complete dataset and ensure the files are named:
 
